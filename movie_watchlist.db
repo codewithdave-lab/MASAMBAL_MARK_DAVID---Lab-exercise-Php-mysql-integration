@@ -1,0 +1,17 @@
+-- 1. Create the database if it doesn't exist yet
+CREATE DATABASE IF NOT EXISTS movie_watchlist;
+
+-- 2. Select the database to use
+USE movie_watchlist;
+
+-- 3. Create the 'movies' table with all our features
+CREATE TABLE IF NOT EXISTS movies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    genre VARCHAR(100) DEFAULT NULL,
+    release_year INT DEFAULT NULL,
+    status ENUM('To Watch', 'Watching', 'Watched') DEFAULT 'To Watch',
+    rating BIGINT DEFAULT 0,
+    notes TEXT DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
